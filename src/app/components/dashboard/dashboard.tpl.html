@@ -1,0 +1,39 @@
+<div class="row">
+  <template [ng-if]="totalDamages > 0">
+    <div class="col-md-4">
+      <p class="lead">Reported Damages <span class="badge">{{ totalDamages }}</span></p>
+    </div>
+  </template>
+
+  <template [ng-if]="bestPrice > 0">
+    <div class="col-md-4">
+      <p class="lead">Best Oil Price <span class="badge">{{ bestPrice }} €</span></p>
+    </div>
+  </template>
+</div>
+<div
+  *ng-for="#c of cars"
+  class="row">
+  <div class="col-md-4">
+    <car [model]="c" (damaged)="notifyCarDamaged($event)"></car>
+  </div>
+  <div class="col-md-3 form-inline">
+
+      <div class="form-group">
+
+        <button
+          (click)="refillTank(c, money.value)"
+          [disabled]="c == null"
+          class="btn btn-primary form-control">
+          &#9981; Refill for
+        </button>
+
+        <input #money value="100" class="form-control" placeholder="amount to spend" style="width: 50px">
+
+        <label>&euro;</label>
+
+      </div>
+
+    </div>
+  </div>
+</div>

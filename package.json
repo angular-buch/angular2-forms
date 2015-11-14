@@ -1,0 +1,19 @@
+{
+  "name": "angular-testing",
+  "version": "1.0.0",
+  "description": "Demo zum Artikel",
+  "dependencies": {
+    "angular2": "2.0.0-alpha.45",
+    "systemjs": "0.19.5",  
+    "bootstrap": "^3.3.5"
+  },
+  "devDependencies": {
+    "live-server": "^0.8.2"
+  },
+  "scripts": {
+    "start": "live-server"
+  },
+  "keywords": ["angular2", "angularjs", "typescript"],
+  "author": "Johannes Hoppe",
+  "license": "ISC"
+}
