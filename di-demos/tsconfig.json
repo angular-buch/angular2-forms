@@ -12,7 +12,8 @@
     "../node_modules/angular2/bundles/typings/**/*.ts"
   ],
   "files": [
-    "./app/sample1.ts",
+    "./app/sample_constructor_injection_es6.ts",
+    "./app/sample_constructor_injection.ts",
     "../node_modules/angular2/bundles/typings/angular2/angular2.d.ts",
     "../node_modules/angular2/bundles/typings/angular2/http.d.ts",
     "../node_modules/angular2/bundles/typings/angular2/router.d.ts",

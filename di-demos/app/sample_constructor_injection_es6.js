@@ -7,26 +7,27 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
+var __param = (this && this.__param) || function (paramIndex, decorator) {
+    return function (target, key) { decorator(target, key, paramIndex); }
+};
 var angular2_1 = require('angular2/angular2');
-var Engine = (function () {
-    function Engine() {
+var GasService = (function () {
+    function GasService() {
     }
-    Engine = __decorate([
-        angular2_1.Injectable(), 
-        __metadata('design:paramtypes', [])
-    ], Engine);
-    return Engine;
+    return GasService;
 })();
-var Car = (function () {
-    function Car(engine) {
-        this.engine = engine;
+var Dashboard = (function () {
+    function Dashboard(gasService) {
+        console.log('Dependency:', gasService);
     }
-    Car = __decorate([
-        angular2_1.Injectable(), 
-        __metadata('design:paramtypes', [Engine])
-    ], Car);
-    return Car;
+    Dashboard = __decorate([
+        __param(0, angular2_1.Inject(GasService)), 
+        __metadata('design:paramtypes', [Object])
+    ], Dashboard);
+    return Dashboard;
 })();
-var injector = angular2_1.Injector.resolveAndCreate([Car, Engine]);
-var car = injector.get(Car);
-//# sourceMappingURL=sample1.js.map
+var injector = angular2_1.Injector.resolveAndCreate([
+    Dashboard,
+    GasService]);
+var dashboard = injector.get(Dashboard);
+//# sourceMappingURL=sample_constructor_injection_es6.js.map
