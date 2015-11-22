@@ -17,7 +17,6 @@ var GasService = (function () {
 var Dashboard = (function () {
     function Dashboard(gasService) {
         this.gasService = gasService;
-        console.log('Dependency:', gasService);
     }
     Dashboard = __decorate([
         angular2_1.Injectable(), 
@@ -26,7 +25,7 @@ var Dashboard = (function () {
     return Dashboard;
 })();
 testing_1.describe("Injector", function () {
-    testing_1.it("should be able to resolve and inject dependencies", function () {
+    testing_1.it("should be able to resolve and inject dependencies (shorthand syntax)", function () {
         var injector = angular2_1.Injector.resolveAndCreate([
             Dashboard,
             GasService]);
@@ -34,5 +33,25 @@ testing_1.describe("Injector", function () {
         testing_1.expect(dashboard instanceof Dashboard).toBe(true);
         testing_1.expect(dashboard.gasService instanceof GasService).toBe(true);
     });
+    testing_1.describe("provide", function () {
+        testing_1.it("should map a TYPE token to a configuration object", function () {
+            var injector = angular2_1.Injector.resolveAndCreate([
+                angular2_1.provide(Dashboard, { useClass: Dashboard }),
+                angular2_1.provide(GasService, { useClass: GasService }),
+            ]);
+            var dashboard = injector.get(Dashboard);
+            testing_1.expect(dashboard instanceof Dashboard).toBe(true);
+            testing_1.expect(dashboard.gasService instanceof GasService).toBe(true);
+        });
+        testing_1.it("should map a STRING token to a configuration object", function () {
+            var injector = angular2_1.Injector.resolveAndCreate([
+                angular2_1.provide('DASHBOARD', { useClass: Dashboard }),
+                angular2_1.provide(GasService, { useClass: GasService }),
+            ]);
+            var dashboard = injector.get('DASHBOARD');
+            testing_1.expect(dashboard instanceof Dashboard).toBe(true);
+            testing_1.expect(dashboard.gasService instanceof GasService).toBe(true);
+        });
+    });
 });
-//# sourceMappingURL=sample_constructor_injection_test.js.map
+//# sourceMappingURL=Injector_test.js.map

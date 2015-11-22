@@ -20,7 +20,6 @@ var GasService = (function () {
 var Dashboard = (function () {
     function Dashboard(gasService) {
         this.gasService = gasService;
-        console.log('Dependency:', gasService);
     }
     Dashboard = __decorate([
         __param(0, angular2_1.Inject(GasService)), 
@@ -28,8 +27,8 @@ var Dashboard = (function () {
     ], Dashboard);
     return Dashboard;
 })();
-testing_1.describe("Injector (ES6 syntax)", function () {
-    testing_1.it("should be able to resolve and inject dependencies", function () {
+testing_1.describe("Injector", function () {
+    testing_1.it("should be able to resolve and inject dependencies without typed signature (ES6 syntax with @Inject))", function () {
         var injector = angular2_1.Injector.resolveAndCreate([
             Dashboard,
             GasService]);
@@ -38,4 +37,4 @@ testing_1.describe("Injector (ES6 syntax)", function () {
         testing_1.expect(dashboard.gasService instanceof GasService).toBe(true);
     });
 });
-//# sourceMappingURL=sample_constructor_injection_es6_test.js.map
+//# sourceMappingURL=Injector_es6_test.js.map

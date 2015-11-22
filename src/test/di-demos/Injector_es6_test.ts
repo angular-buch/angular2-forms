@@ -4,29 +4,23 @@ import {Inject, Injector, Injectable} from 'angular2/angular2'
 class GasService {
 }
 
-@Injectable()
 class Dashboard {
-  constructor(public gasService: GasService) {
-    console.log('Dependency:', gasService)
+  gasService;
+
+  constructor(@Inject(GasService) gasService) {
+
+    this.gasService = gasService;
+    //console.log('Dependency:', gasService)
   }
 }
 
 describe("Injector", () => {
-  it("should be able to resolve and inject dependencies", () => {
+  it("should be able to resolve and inject dependencies without typed signature (ES6 syntax with @Inject))", () => {
 
     var injector = Injector.resolveAndCreate([
       Dashboard,
       GasService]
     );
-
-    // shorthand syntax for: token to class
-    /*
-    var injector = Injector.resolveAndCreate([
-      provide(Dashboard, {useClass: Dashboard}),
-      provide(GasService, {useClass: GasService}),
-    ]);
-    */
-
     var dashboard = injector.get(Dashboard);
 
     expect(dashboard instanceof Dashboard).toBe(true);
