@@ -7,9 +7,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-var __param = (this && this.__param) || function (paramIndex, decorator) {
-    return function (target, key) { decorator(target, key, paramIndex); }
-};
+var testing_1 = require('angular2/testing');
 var angular2_1 = require('angular2/angular2');
 var GasService = (function () {
     function GasService() {
@@ -18,16 +16,23 @@ var GasService = (function () {
 })();
 var Dashboard = (function () {
     function Dashboard(gasService) {
+        this.gasService = gasService;
         console.log('Dependency:', gasService);
     }
     Dashboard = __decorate([
-        __param(0, angular2_1.Inject(GasService)), 
-        __metadata('design:paramtypes', [Object])
+        angular2_1.Injectable(), 
+        __metadata('design:paramtypes', [GasService])
     ], Dashboard);
     return Dashboard;
 })();
-var injector = angular2_1.Injector.resolveAndCreate([
-    Dashboard,
-    GasService]);
-var dashboard = injector.get(Dashboard);
-//# sourceMappingURL=sample_constructor_injection_es6.js.map
+testing_1.describe("Injector", function () {
+    testing_1.it("should be able to resolve and inject dependencies", function () {
+        var injector = angular2_1.Injector.resolveAndCreate([
+            Dashboard,
+            GasService]);
+        var dashboard = injector.get(Dashboard);
+        testing_1.expect(dashboard instanceof Dashboard).toBe(true);
+        testing_1.expect(dashboard.gasService instanceof GasService).toBe(true);
+    });
+});
+//# sourceMappingURL=sample_constructor_injection_test.js.map

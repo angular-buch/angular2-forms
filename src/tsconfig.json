@@ -19,10 +19,9 @@
     "./app/models/gasService.ts",
     "./app/models/station.ts",
     "./app/models/stationList.ts",
-    "../node_modules/angular2/bundles/typings/angular2/angular2.d.ts",
-    "../node_modules/angular2/bundles/typings/angular2/http.d.ts",
-    "../node_modules/angular2/bundles/typings/angular2/router.d.ts",
-    "../node_modules/angular2/bundles/typings/angular2/testing.d.ts",
+    "./test/di-demos/sample_constructor_injection_es6_test.ts",
+    "./test/di-demos/sample_constructor_injection_test.ts",
+    "./test/di-demos/using-injector_test.ts",
     "../node_modules/angular2/bundles/typings/es6-shim/es6-shim.d.ts",
     "../node_modules/angular2/bundles/typings/jasmine/jasmine.d.ts"
   ],
