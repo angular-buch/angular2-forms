@@ -43,7 +43,7 @@ testing_1.describe("Injector", function () {
             testing_1.expect(dashboard instanceof Dashboard).toBe(true);
             testing_1.expect(dashboard.gasService instanceof GasService).toBe(true);
         });
-        testing_1.it("should map a STRING token to a configuration object", function () {
+        testing_1.it("should map a STRING token to a configuration object [useClass]", function () {
             var injector = angular2_1.Injector.resolveAndCreate([
                 angular2_1.provide('DASHBOARD', { useClass: Dashboard }),
                 angular2_1.provide(GasService, { useClass: GasService }),
@@ -51,6 +51,43 @@ testing_1.describe("Injector", function () {
             var dashboard = injector.get('DASHBOARD');
             testing_1.expect(dashboard instanceof Dashboard).toBe(true);
             testing_1.expect(dashboard.gasService instanceof GasService).toBe(true);
+        });
+        testing_1.describe("configuration object", function () {
+            testing_1.it("should have a recipe for providing values [useValue]", function () {
+                var injector = angular2_1.Injector.resolveAndCreate([
+                    angular2_1.provide('TEST', { useValue: 'Hello Angular2' })
+                ]);
+                var test = injector.get('TEST');
+                testing_1.expect(test).toBe('Hello Angular2');
+            });
+            testing_1.it("should have a recipe for providing aliases [useExisting]", function () {
+                var DashboardAlias = (function () {
+                    function DashboardAlias() {
+                    }
+                    return DashboardAlias;
+                })();
+                ;
+                var injector = angular2_1.Injector.resolveAndCreate([
+                    angular2_1.provide(Dashboard, { useClass: Dashboard }),
+                    angular2_1.provide(GasService, { useClass: GasService }),
+                    angular2_1.provide(DashboardAlias, { useExisting: Dashboard }),
+                ]);
+                var dashboard = injector.get(DashboardAlias);
+                testing_1.expect(dashboard instanceof Dashboard).toBe(true);
+                testing_1.expect(dashboard.gasService instanceof GasService).toBe(true);
+            });
+            testing_1.it("should have a recipe for providing factories [useFactory]", function () {
+                var factory = function () {
+                    var gasService = new GasService();
+                    return new Dashboard(gasService);
+                };
+                var injector = angular2_1.Injector.resolveAndCreate([
+                    angular2_1.provide(Dashboard, { useFactory: factory })
+                ]);
+                var dashboard = injector.get(Dashboard);
+                testing_1.expect(dashboard instanceof Dashboard).toBe(true);
+                testing_1.expect(dashboard.gasService instanceof GasService).toBe(true);
+            });
         });
     });
 });
