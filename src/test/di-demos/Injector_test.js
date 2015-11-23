@@ -77,12 +77,12 @@ testing_1.describe("Injector", function () {
                 testing_1.expect(dashboard.gasService instanceof GasService).toBe(true);
             });
             testing_1.it("should have a recipe for providing factories [useFactory]", function () {
-                var factory = function () {
-                    var gasService = new GasService();
+                var factory = function (gasService) {
                     return new Dashboard(gasService);
                 };
                 var injector = angular2_1.Injector.resolveAndCreate([
-                    angular2_1.provide(Dashboard, { useFactory: factory })
+                    angular2_1.provide(GasService, { useClass: GasService }),
+                    angular2_1.provide(Dashboard, { useFactory: factory, deps: [GasService] })
                 ]);
                 var dashboard = injector.get(Dashboard);
                 testing_1.expect(dashboard instanceof Dashboard).toBe(true);

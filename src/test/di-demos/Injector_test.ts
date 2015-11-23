@@ -86,13 +86,14 @@ describe("Injector", () => {
 
         it("should have a recipe for providing factories [useFactory]", () => {
 
-          var factory = () => {
-              var gasService = new GasService();
+          //  a factory can have own dependencies, too
+          var factory = (gasService: GasService) => {
               return new Dashboard(gasService);
           };
 
           var injector = Injector.resolveAndCreate([
-              provide(Dashboard, { useFactory: factory })
+              provide(GasService, {useClass: GasService}),
+              provide(Dashboard, { useFactory: factory, deps: [GasService]})
           ]);
 
           var dashboard = injector.get(Dashboard);
