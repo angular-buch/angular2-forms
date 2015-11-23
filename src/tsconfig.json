@@ -22,6 +22,7 @@
     "./test/di-demos/Injector_es6_test.ts",
     "./test/di-demos/Injector_test.ts",
     "./test/di-demos/using-injector_test.ts",
+    "./test/HelloWorld_test.ts",
     "../node_modules/angular2/bundles/typings/es6-shim/es6-shim.d.ts",
     "../node_modules/angular2/bundles/typings/jasmine/jasmine.d.ts"
   ],
