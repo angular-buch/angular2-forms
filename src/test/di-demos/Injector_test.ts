@@ -102,6 +102,35 @@ describe("Injector", () => {
           expect(dashboard.gasService instanceof GasService).toBe(true);
         });
 
+        it("proof: factories also serve singletons", () => {
+
+          @Injectable()
+          class TestObject {
+            constructor(public testId: number) {
+            }
+          }
+
+          var idCounter = 0;
+          var factory = () => {
+              return new TestObject(++idCounter);
+          };
+
+          var injector = Injector.resolveAndCreate([
+              provide(TestObject, { useFactory: factory })
+          ]);
+
+          var test1 = injector.get(TestObject);
+          expect(test1.testId).toBe(1);
+
+          // cached instance will be used
+          var test2 = injector.get(TestObject);
+          expect(test2.testId).toBe(1);
+
+          // according to docs, this does not get cached
+          var test3 = injector.resolveAndInstantiate(provide(TestObject, { useFactory: factory }))
+          expect(test3.testId).toBe(2);
+        });
+
     });
 
 

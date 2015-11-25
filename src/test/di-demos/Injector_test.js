@@ -88,6 +88,31 @@ testing_1.describe("Injector", function () {
                 testing_1.expect(dashboard instanceof Dashboard).toBe(true);
                 testing_1.expect(dashboard.gasService instanceof GasService).toBe(true);
             });
+            testing_1.it("proof: factories also serve singletons", function () {
+                var TestObject = (function () {
+                    function TestObject(testId) {
+                        this.testId = testId;
+                    }
+                    TestObject = __decorate([
+                        angular2_1.Injectable(), 
+                        __metadata('design:paramtypes', [Number])
+                    ], TestObject);
+                    return TestObject;
+                })();
+                var idCounter = 0;
+                var factory = function () {
+                    return new TestObject(++idCounter);
+                };
+                var injector = angular2_1.Injector.resolveAndCreate([
+                    angular2_1.provide(TestObject, { useFactory: factory })
+                ]);
+                var test1 = injector.get(TestObject);
+                testing_1.expect(test1.testId).toBe(1);
+                var test2 = injector.get(TestObject);
+                testing_1.expect(test2.testId).toBe(1);
+                var test3 = injector.resolveAndInstantiate(angular2_1.provide(TestObject, { useFactory: factory }));
+                testing_1.expect(test3.testId).toBe(2);
+            });
         });
     });
 });

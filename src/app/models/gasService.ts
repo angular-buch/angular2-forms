@@ -2,15 +2,6 @@ import {Injectable} from 'angular2/core';
 import {Http, HTTP_PROVIDERS, URLSearchParams } from 'angular2/http';
 import Station from './Station';
 
-// ****
-// duplicate type 'Observable', see http://stackoverflow.com/a/33334863
-// wrong: import {Observable } from 'angular2/core';
-// right: import Observable from '@reactivex/rxjs/dist/cjs/Observable';
-// for now we fall back to 'any'
-// ****
-
-// enforce TypeScript to emit the needed metadata,
-// see http://blog.thoughtram.io/angular/2015/09/17/resolve-service-dependencies-in-angular-2.html
 @Injectable()
 export default class GasService {
 
@@ -24,7 +15,7 @@ export default class GasService {
 
   getBestPrice() {
     return this.http.get(this.apiUrlAndKey)
-      .map(result => result.json().stations)
+      .map(result => (<any>result).json().stations)
       .map((stations: Array<Station>): number =>
         stations[0].price
       )
