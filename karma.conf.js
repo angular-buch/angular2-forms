@@ -9,9 +9,10 @@ module.exports = function(config) {
       // paths loaded by Karma
       {pattern: 'node_modules/systemjs/dist/system.src.js', included: true, watched: true},
       {pattern: 'node_modules/angular2/bundles/angular2.js', included: true, watched: true},
+      {pattern: 'node_modules/angular2/bundles/http.js', included: true, watched: true}, //  NEW
       {pattern: 'node_modules/angular2/bundles/testing.js', included: true, watched: true},
       {pattern: 'karma-test-shim.js', included: true, watched: true},
-      {pattern: 'src/test/matchers.js', included: true, watched: true},
+      //{pattern: 'src/test/matchers.js', included: true, watched: true},
 
       // paths loaded via module imports
       {pattern: 'src/**/*.js', included: false, watched: true},
@@ -40,4 +41,4 @@ module.exports = function(config) {
     browsers: ['Chrome'],
     singleRun: false
   })
-} 
+}

@@ -12,8 +12,15 @@ __karma__.loaded = function() {};
 System.config({
   packages: {
     'base/src/app': {
+
+      // !!!
+      // see your tsconfig.json -- its important that the package is set up correctly
       defaultExtension: false,
-      format: 'register',
+      // When the module format is not set, automatic regular-expression-based
+      // detection is used. This module format detection is never completely
+      // accurate, but caters well for the majority use cases.
+      //format: 'register',
+      // !!!
       map: Object.keys(window.__karma__.files).
             filter(onlyAppFiles).
             reduce(function createPathRecords(pathsMapping, appPath) {
