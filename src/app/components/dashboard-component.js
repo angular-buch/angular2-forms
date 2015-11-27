@@ -8,9 +8,9 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var angular2_1 = require('angular2/angular2');
-var car_component_1 = require('../car/car.component');
-var car_1 = require('../../models/car');
-var gasService_1 = require('../../models/gasService');
+var car_component_1 = require('./car-component');
+var car_1 = require('../models/car');
+var gas_service_1 = require('../models/gas-service');
 var DashboardComponent = (function () {
     function DashboardComponent(gasService) {
         this.gasService = gasService;
@@ -36,12 +36,12 @@ var DashboardComponent = (function () {
         angular2_1.Component({ selector: 'dashboard' }),
         angular2_1.View({
             directives: [car_component_1.default, angular2_1.NgFor, angular2_1.NgIf],
-            templateUrl: 'app/components/dashboard/dashboard.tpl.html'
+            templateUrl: 'app/components/dashboard.tpl.html'
         }), 
-        __metadata('design:paramtypes', [gasService_1.default])
+        __metadata('design:paramtypes', [gas_service_1.default])
     ], DashboardComponent);
     return DashboardComponent;
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.default = DashboardComponent;
-//# sourceMappingURL=dashboard.component.js.map
+//# sourceMappingURL=dashboard-component.js.map

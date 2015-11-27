@@ -14,11 +14,9 @@ System.config({
     'base/src/app': {
 
       // !!!
-      // see your tsconfig.json -- its important that the package is set up correctly
+      // see also tsconfig.json -- its important that the package is set up correctly
       defaultExtension: false,
-      // When the module format is not set, automatic regular-expression-based
-      // detection is used. This module format detection is never completely
-      // accurate, but caters well for the majority use cases.
+      // When the module format is not set, automatic regular-expression-based detection is used. 
       //format: 'register',
       // !!!
       map: Object.keys(window.__karma__.files).

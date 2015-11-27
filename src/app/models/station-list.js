@@ -5,4 +5,4 @@ var StationList = (function () {
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.default = StationList;
-//# sourceMappingURL=stationList.js.map
+//# sourceMappingURL=station-list.js.map
