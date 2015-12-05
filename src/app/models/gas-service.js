@@ -12,7 +12,7 @@ var http_1 = require('angular2/http');
 var GasService = (function () {
     function GasService(http) {
         this.http = http;
-        this.apiUrl = 'https://creativecommons.tankerkoenig.de/json/list.php?lat=52.52099975265203&lng=13.43803882598877&rad=4&sort=price&type=diesel';
+        this.apiUrl = 'https://creativecommons.tankerkoenig.de/json/list.php?lat=49.41&lng=8.7&rad=4&sort=price&type=diesel';
         this.apiKey = '&apikey=acc6ad94-2b49-9190-5fcf-94d683f66887';
         this.apiUrlAndKey = this.apiUrl + this.apiKey;
     }
