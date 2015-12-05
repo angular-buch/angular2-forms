@@ -31,4 +31,4 @@ var GasService = (function () {
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.default = GasService;
-//# sourceMappingURL=gasService.js.map
+//# sourceMappingURL=gas-service.js.map

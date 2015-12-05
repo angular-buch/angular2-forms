@@ -1,5 +1,5 @@
 import {Injectable} from 'angular2/core';
-import {Http, HTTP_PROVIDERS, URLSearchParams } from 'angular2/http';
+import {Http} from 'angular2/http';
 import Station from './Station';
 
 @Injectable()
