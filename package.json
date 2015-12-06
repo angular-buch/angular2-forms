@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "Demo zum Artikel",
   "dependencies": {
-    "angular2": "2.0.0-alpha.48",
+    "angular2": "2.0.0-alpha.47",
     "systemjs": "0.19.5",
     "bootstrap": "^3.3.5"
   },
