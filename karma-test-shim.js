@@ -16,7 +16,7 @@ System.config({
       // !!!
       // see also tsconfig.json -- its important that the package is set up correctly
       defaultExtension: false,
-      // When the module format is not set, automatic regular-expression-based detection is used. 
+      // When the module format is not set, automatic regular-expression-based detection is used.
       //format: 'register',
       // !!!
       map: Object.keys(window.__karma__.files).
@@ -33,7 +33,7 @@ System.config({
     }
 });
 
-System.import('angular2/src/core/dom/browser_adapter').then(function(browser_adapter) {
+System.import('angular2/src/platform/browser/browser_adapter').then(function(browser_adapter) {
   browser_adapter.BrowserDomAdapter.makeCurrent();
 }).then(function() {
   return Promise.all(
