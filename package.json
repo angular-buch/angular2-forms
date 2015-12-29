@@ -3,14 +3,21 @@
   "version": "1.0.0",
   "description": "Demo zum Artikel",
   "dependencies": {
-    "angular2": "2.0.0-alpha.47",
-    "systemjs": "0.19.5",
+    "angular2": "2.0.0-beta.0",
+    "systemjs": "0.19.6",
+    "es6-promise": "^3.0.2",
+    "es6-shim": "^0.33.3",
+    "reflect-metadata": "0.1.2",
+    "rxjs": "5.0.0-beta.0",
+    "zone.js": "0.5.10",
     "bootstrap": "^3.3.5"
   },
   "devDependencies": {
+    "jasmine-core": "^2.4.1",
     "karma": "^0.13.15",
     "karma-chrome-launcher": "^0.2.1",
-    "karma-jasmine": "^0.3.6"
+    "karma-jasmine": "^0.3.6",
+    "live-server": "^0.9.0"
   },
   "scripts": {
     "start": "live-server",
@@ -21,6 +28,6 @@
     "angularjs",
     "typescript"
   ],
-  "author": "Johannes Hoppe",
+  "author": "Johannes Hoppe, Gregor Woiwode",
   "license": "ISC"
 }
