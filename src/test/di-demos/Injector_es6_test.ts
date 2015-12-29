@@ -1,5 +1,5 @@
 import {it, describe, expect} from 'angular2/testing';
-import {Inject, Injector, Injectable} from 'angular2/angular2'
+import {Inject, Injector, Injectable} from 'angular2/core'
 
 class GasService {
 }

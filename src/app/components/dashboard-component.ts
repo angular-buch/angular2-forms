@@ -1,4 +1,4 @@
-import { Component, View, NgFor, NgIf } from 'angular2/angular2';
+import { Component, View } from 'angular2/core';
 
 import CarComponent from './car-component';
 import Car from '../models/car';
@@ -6,7 +6,7 @@ import GasService from '../models/gas-service';
 
 @Component({selector: 'dashboard'})
 @View({
-  directives: [CarComponent, NgFor, NgIf],
+  directives: [CarComponent],
   templateUrl: 'app/components/dashboard.tpl.html'
 })
 export default class DashboardComponent {

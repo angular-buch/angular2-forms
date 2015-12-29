@@ -1,6 +1,7 @@
 import { beforeEachProviders, describe, expect, inject, it } from 'angular2/testing';
-import { provide } from 'angular2/angular2';
-import { MockBackend, BaseRequestOptions, Http, Response, ResponseOptions } from 'angular2/http';
+import { MockBackend } from 'angular2/http/testing';
+import { provide } from 'angular2/core';
+import { BaseRequestOptions, Http, Response, ResponseOptions } from 'angular2/http';
 import GasService from '../../app/models/gas-service';
 
 describe('GasService', () => {

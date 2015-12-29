@@ -1,4 +1,4 @@
-import { Component, View , Input, Output, EventEmitter } from 'angular2/angular2';
+import { Component, View , Input, Output, EventEmitter } from 'angular2/core';
 import Car from '../models/car';
 
 @Component({ selector: 'car' })
@@ -46,7 +46,7 @@ import Car from '../models/car';
 })
 export default class CarComponent {
   @Input() model: Car;
-  @Output() damaged: EventEmitter = new EventEmitter<{}>();
+  @Output() damaged: EventEmitter<Car> = new EventEmitter<Car>();
 
   stoneImpact() {
     this.model.hasDamage = true;

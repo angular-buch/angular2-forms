@@ -1,6 +1,7 @@
 import {Injectable} from 'angular2/core';
 import {Http} from 'angular2/http';
 import Station from './Station';
+import 'rxjs/add/operator/map';
 
 @Injectable()
 export default class GasService {

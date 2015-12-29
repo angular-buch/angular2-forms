@@ -1,3 +1,4 @@
+"use strict";
 var Station = (function () {
     function Station() {
     }
@@ -5,4 +6,4 @@ var Station = (function () {
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.default = Station;
-//# sourceMappingURL=station.js.map
+//# sourceMappingURL=Station.js.map

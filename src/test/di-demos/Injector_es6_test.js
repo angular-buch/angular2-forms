@@ -1,3 +1,4 @@
+"use strict";
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -11,7 +12,7 @@ var __param = (this && this.__param) || function (paramIndex, decorator) {
     return function (target, key) { decorator(target, key, paramIndex); }
 };
 var testing_1 = require('angular2/testing');
-var angular2_1 = require('angular2/angular2');
+var core_1 = require('angular2/core');
 var GasService = (function () {
     function GasService() {
     }
@@ -22,14 +23,14 @@ var Dashboard = (function () {
         this.gasService = gasService;
     }
     Dashboard = __decorate([
-        __param(0, angular2_1.Inject(GasService)), 
+        __param(0, core_1.Inject(GasService)), 
         __metadata('design:paramtypes', [Object])
     ], Dashboard);
     return Dashboard;
 })();
 testing_1.describe("Injector", function () {
     testing_1.it("should be able to resolve and inject dependencies without typed signature (ES6 syntax with @Inject))", function () {
-        var injector = angular2_1.Injector.resolveAndCreate([
+        var injector = core_1.Injector.resolveAndCreate([
             Dashboard,
             GasService]);
         var dashboard = injector.get(Dashboard);

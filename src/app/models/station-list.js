@@ -1,3 +1,4 @@
+"use strict";
 var StationList = (function () {
     function StationList() {
     }

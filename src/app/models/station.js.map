@@ -1,1 +1,1 @@
-{"version":3,"file":"station.js","sourceRoot":"","sources":["station.ts"],"names":["Station","Station.constructor"],"mappings":"AAAA;IAAAA;IAkCAC,CAACA;IAADD,cAACA;AAADA,CAACA,AAlCD,IAkCC;AAlCD;yBAkCC,CAAA"}
+{"version":3,"file":"Station.js","sourceRoot":"","sources":["Station.ts"],"names":[],"mappings":";AAAA;IAAA;IAkCA,CAAC;IAAD,cAAC;AAAD,CAAC,AAlCD,IAkCC;AAlCD;yBAkCC,CAAA"}

@@ -1,3 +1,4 @@
+"use strict";
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -8,7 +9,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var testing_1 = require('angular2/testing');
-var angular2_1 = require('angular2/angular2');
+var core_1 = require('angular2/core');
 var GasService = (function () {
     function GasService() {
     }
@@ -19,14 +20,14 @@ var Dashboard = (function () {
         this.gasService = gasService;
     }
     Dashboard = __decorate([
-        angular2_1.Injectable(), 
+        core_1.Injectable(), 
         __metadata('design:paramtypes', [GasService])
     ], Dashboard);
     return Dashboard;
 })();
 testing_1.describe("Injector", function () {
     testing_1.it("should be able to resolve and inject dependencies (shorthand syntax)", function () {
-        var injector = angular2_1.Injector.resolveAndCreate([
+        var injector = core_1.Injector.resolveAndCreate([
             Dashboard,
             GasService]);
         var dashboard = injector.get(Dashboard);
@@ -35,18 +36,18 @@ testing_1.describe("Injector", function () {
     });
     testing_1.describe("provide", function () {
         testing_1.it("should map a TYPE token to a configuration object", function () {
-            var injector = angular2_1.Injector.resolveAndCreate([
-                angular2_1.provide(Dashboard, { useClass: Dashboard }),
-                angular2_1.provide(GasService, { useClass: GasService }),
+            var injector = core_1.Injector.resolveAndCreate([
+                core_1.provide(Dashboard, { useClass: Dashboard }),
+                core_1.provide(GasService, { useClass: GasService }),
             ]);
             var dashboard = injector.get(Dashboard);
             testing_1.expect(dashboard instanceof Dashboard).toBe(true);
             testing_1.expect(dashboard.gasService instanceof GasService).toBe(true);
         });
         testing_1.it("should map a STRING token to a configuration object [useClass]", function () {
-            var injector = angular2_1.Injector.resolveAndCreate([
-                angular2_1.provide('DASHBOARD', { useClass: Dashboard }),
-                angular2_1.provide(GasService, { useClass: GasService }),
+            var injector = core_1.Injector.resolveAndCreate([
+                core_1.provide('DASHBOARD', { useClass: Dashboard }),
+                core_1.provide(GasService, { useClass: GasService }),
             ]);
             var dashboard = injector.get('DASHBOARD');
             testing_1.expect(dashboard instanceof Dashboard).toBe(true);
@@ -54,8 +55,8 @@ testing_1.describe("Injector", function () {
         });
         testing_1.describe("configuration object", function () {
             testing_1.it("should have a recipe for providing values [useValue]", function () {
-                var injector = angular2_1.Injector.resolveAndCreate([
-                    angular2_1.provide('TEST', { useValue: 'Hello Angular2' })
+                var injector = core_1.Injector.resolveAndCreate([
+                    core_1.provide('TEST', { useValue: 'Hello Angular2' })
                 ]);
                 var test = injector.get('TEST');
                 testing_1.expect(test).toBe('Hello Angular2');
@@ -67,10 +68,10 @@ testing_1.describe("Injector", function () {
                     return DashboardAlias;
                 })();
                 ;
-                var injector = angular2_1.Injector.resolveAndCreate([
-                    angular2_1.provide(Dashboard, { useClass: Dashboard }),
-                    angular2_1.provide(GasService, { useClass: GasService }),
-                    angular2_1.provide(DashboardAlias, { useExisting: Dashboard }),
+                var injector = core_1.Injector.resolveAndCreate([
+                    core_1.provide(Dashboard, { useClass: Dashboard }),
+                    core_1.provide(GasService, { useClass: GasService }),
+                    core_1.provide(DashboardAlias, { useExisting: Dashboard }),
                 ]);
                 var dashboard = injector.get(DashboardAlias);
                 testing_1.expect(dashboard instanceof Dashboard).toBe(true);
@@ -80,9 +81,9 @@ testing_1.describe("Injector", function () {
                 var factory = function (gasService) {
                     return new Dashboard(gasService);
                 };
-                var injector = angular2_1.Injector.resolveAndCreate([
-                    angular2_1.provide(GasService, { useClass: GasService }),
-                    angular2_1.provide(Dashboard, { useFactory: factory, deps: [GasService] })
+                var injector = core_1.Injector.resolveAndCreate([
+                    core_1.provide(GasService, { useClass: GasService }),
+                    core_1.provide(Dashboard, { useFactory: factory, deps: [GasService] })
                 ]);
                 var dashboard = injector.get(Dashboard);
                 testing_1.expect(dashboard instanceof Dashboard).toBe(true);
@@ -94,7 +95,7 @@ testing_1.describe("Injector", function () {
                         this.testId = testId;
                     }
                     TestObject = __decorate([
-                        angular2_1.Injectable(), 
+                        core_1.Injectable(), 
                         __metadata('design:paramtypes', [Number])
                     ], TestObject);
                     return TestObject;
@@ -103,14 +104,14 @@ testing_1.describe("Injector", function () {
                 var factory = function () {
                     return new TestObject(++idCounter);
                 };
-                var injector = angular2_1.Injector.resolveAndCreate([
-                    angular2_1.provide(TestObject, { useFactory: factory })
+                var injector = core_1.Injector.resolveAndCreate([
+                    core_1.provide(TestObject, { useFactory: factory })
                 ]);
                 var test1 = injector.get(TestObject);
                 testing_1.expect(test1.testId).toBe(1);
                 var test2 = injector.get(TestObject);
                 testing_1.expect(test2.testId).toBe(1);
-                var test3 = injector.resolveAndInstantiate(angular2_1.provide(TestObject, { useFactory: factory }));
+                var test3 = injector.resolveAndInstantiate(core_1.provide(TestObject, { useFactory: factory }));
                 testing_1.expect(test3.testId).toBe(2);
             });
         });
