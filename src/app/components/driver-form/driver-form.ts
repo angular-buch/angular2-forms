@@ -2,7 +2,7 @@ import {Component} from 'angular2/core';
 import {Control, ControlGroup, FormBuilder, Validators} from 'angular2/common';
 import {DateValidator} from '../../validators/date.validator'
 import {IdValidator} from '../../validators/id.validator'
-import {Driver} from './driver';
+import {Driver} from '../../models/driver';
 
 @Component({
   selector: 'driver-form',
