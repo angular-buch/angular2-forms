@@ -19,12 +19,12 @@ export class DriverForm {
   constructor(private fb: FormBuilder) {
 
     this.driverForm = fb.group({
-      'id':        ['', Validators.required, IdValidator.uniqueId],
-      'firstName': ['', Validators.compose([Validators.required,
-                                            Validators.minLength(2)])],
-      'lastName' : ['', Validators.required],
-      'birthdate': ['', DateValidator.germanDate],
-      'type':      ['', Validators.required]
+      id:        ['', Validators.required, IdValidator.uniqueId],
+      firstName: ['', Validators.compose([Validators.required,
+                                          Validators.minLength(2)])],
+      lastName:  ['', Validators.required],
+      birthdate: ['', DateValidator.germanDate],
+      type:      ['', Validators.required]
     });
   }
 
