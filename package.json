@@ -1,33 +1,29 @@
 {
-  "name": "angular-testing",
-  "version": "1.0.0",
-  "description": "Demo zum Artikel",
+  "name": "forms",
+  "version": "0.0.0",
+  "license": "Apache-2.0",
   "dependencies": {
     "angular2": "2.0.0-beta.0",
-    "systemjs": "0.19.6",
+    "bootstrap": "^3.3.6",
     "es6-promise": "^3.0.2",
     "es6-shim": "^0.33.3",
     "reflect-metadata": "0.1.2",
     "rxjs": "5.0.0-beta.0",
-    "zone.js": "0.5.10",
-    "bootstrap": "^3.3.5"
+    "systemjs": "0.19.6",
+    "zone.js": "0.5.10"
   },
   "devDependencies": {
-    "jasmine-core": "^2.4.1",
+    "angular-cli": "0.0.*",
+    "angular-cli-github-pages": "^0.2.0",
+    "broccoli-funnel": "^1.0.1",
+    "broccoli-merge-trees": "^1.1.1",
+    "concurrently": "^1.0.0",
+    "ember-cli-inject-live-reload": "^1.3.0",
+    "jasmine-core": "^2.3.4",
     "karma": "^0.13.15",
     "karma-chrome-launcher": "^0.2.1",
     "karma-jasmine": "^0.3.6",
-    "live-server": "^0.9.0"
-  },
-  "scripts": {
-    "start": "live-server",
-    "test": "karma start"
-  },
-  "keywords": [
-    "angular2",
-    "angularjs",
-    "typescript"
-  ],
-  "author": "Johannes Hoppe, Gregor Woiwode",
-  "license": "ISC"
+    "lite-server": "^1.3.1",
+    "typescript": "^1.7.3"
+  }
 }

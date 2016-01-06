@@ -1,33 +1,16 @@
 {
   "compilerOptions": {
-    "target": "es5",
-    "module": "commonjs",
+    "declaration": false,
     "emitDecoratorMetadata": true,
-    "sourceMap": true,
     "experimentalDecorators": true,
-    "newLine": "LF"
-  },
-  "filesGlob": [
-    "./**/*.ts",
-    "../node_modules/angular2/bundles/typings/**/*.ts"
-  ],
-  "files": [
-    "./app/app.ts",
-    "./app/components/car-component.ts",
-    "./app/components/dashboard-component.ts",
-    "./app/models/car.ts",
-    "./app/models/gas-service.ts",
-    "./app/models/station-list.ts",
-    "./app/models/station.ts",
-    "./test/components/dashboard-component_test.ts",
-    "./test/di-demos/async_test.ts",
-    "./test/di-demos/HelloWorld_test.ts",
-    "./test/di-demos/Injector_es6_test.ts",
-    "./test/di-demos/Injector_test.ts",
-    "./test/di-demos/using-injector_test.ts",
-    "./test/models/gas-service_test.ts",
-    "../node_modules/angular2/bundles/typings/es6-shim/es6-shim.d.ts",
-    "../node_modules/angular2/bundles/typings/jasmine/jasmine.d.ts"
-  ],
-  "exclude": []
+    "mapRoot": "",
+    "module": "system",
+    "moduleResolution": "node",
+    "noEmitOnError": true,
+    "noImplicitAny": false,
+    "rootDir": ".",
+    "sourceMap": true,
+    "sourceRoot": "/",
+    "target": "es5"
+  }
 }

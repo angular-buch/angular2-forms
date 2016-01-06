@@ -1,0 +1,99 @@
+<h2>Neuen Fahrer registrieren</h2>
+<form [ngFormModel]="driverForm"
+      [hidden]="submitted" 
+      (ngSubmit)="onSubmit()">
+      
+  <div class="form-group">
+    <label for="idInput">Id</label>
+    <input type="text" 
+           class="form-control"
+           id="idInput"
+           #driverId="ngForm"
+           [(ngModel)]="driver.id"
+           [ngFormControl]="driverForm.controls['id']">
+    
+           
+    <p class="alert alert-success" 
+       *ngIf="driverId.control.pending">
+     Überprüfe Verfügbarkeit...
+    </p>
+    
+    <div class="alert alert-danger"
+         *ngIf="!driverId.control.valid && !driverId.control.pending">
+      <p *ngIf="driverId.control.errors.isIdAlreadyInUse">
+          Diese Id exisitert bereist.
+      </p>
+    </div>
+    
+  </div>
+
+  <div class="form-group">
+    <label for="firstNameInput">Vorname</label>
+    <input type="text" 
+           class="form-control"
+           id="firstNameInput"
+           #firstName="ngForm"
+           [(ngModel)]="driver.firstName"
+           [ngFormControl]="driverForm.controls['firstName']">
+    
+    <div [hidden]="firstName.control.valid" class="alert alert-danger">
+      Geben Sie einen Vornamen ein.
+    </div>
+  </div>
+  
+  <div class="form-group">
+    <label for="lastNameInput">Nachname</label>
+    <input type="text" 
+           class="form-control"
+           id="lastNameInput"
+           [(ngModel)]="driver.lastName"
+           #lastName="ngForm"
+           [ngFormControl]="driverForm.controls['lastName']"
+           required
+           minlength="2">
+           
+    <div [hidden]="lastName.control.valid" class="alert alert-danger">
+      Geben Sie einen Nachnamen ein.
+    </div>
+  </div>
+  
+  <div class="form-group">
+    <label for="birthdateInput">Geburtstag</label>
+    <input type="text" 
+          class="form-control"
+          id="birthdateInput"
+          #birthdate="ngForm"
+          [(ngModel)]="driver.birthdate"
+          [ngFormControl]="driverForm.controls['birthdate']">
+
+      <div class="alert alert-danger"
+           *ngIf="birthdate.control.dirty && !birthdate.control.valid && birthdate.control.errors.isDate">
+          Geben Sie ein Datum ein.
+          Beispiel: 01.01.1970
+      </div>
+ 
+  </div>
+  
+  <div class="form-group">
+    <label for="power">Typ</label>
+    <select class="form-control"
+            [(ngModel)]="driver.type"
+            [ngFormControl]="driverForm.controls['type']" 
+            #driverType="ngForm">
+      <option *ngFor="#t of types" [value]="t">{{t}}</option>
+    </select>
+    <div [hidden]="driverType.control.valid" class="alert alert-danger">
+      Bei welchem Rennen wird der Fahrer antreten?
+    </div>
+  </div>
+
+ <button type="submit"
+         class="btn btn-primary"
+         [disabled]="!driverForm.valid">Fahrer registrieren</button>
+</form>
+
+<div [hidden]="!submitted">
+  Der Fahrer {{ driver.firstName }} {{ driver.lastName }} (gebohren am {{ driver.birthdate }}) wurde erfolgreich registriert.
+  <br>
+  Er tritt für als {{driver.type}}-Fahrer an.
+</div>
