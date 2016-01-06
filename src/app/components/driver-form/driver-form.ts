@@ -11,25 +11,25 @@ import {Driver} from '../../models/driver';
 })
 export class DriverForm {
   driverForm: ControlGroup;
-  
+
   types = ['Formel 1', 'Stock Car Rennen', 'Rallye', 'Kartsport'];
   driver = new Driver('MS', 'Nico', 'Rossberg', '27.07.1985');
   submitted = false;
-  
+
   constructor(private fb: FormBuilder) {
-    
+
     this.driverForm = fb.group({
-      'id':        ['', Validators.required, IdValidator.isIdAlreadyInUse],
+      'id':        ['', Validators.required, IdValidator.uniqueId],
       'firstName': ['', Validators.compose([Validators.required,
                                             Validators.minLength(2)])],
       'lastName' : ['', Validators.required],
-      'birthdate': ['', DateValidator.isDate],
+      'birthdate': ['', DateValidator.germanDate],
       'type':      ['', Validators.required]
     });
   }
-  
-  onSubmit() { 
-    this.submitted = true; 
+
+  onSubmit() {
+    this.submitted = true;
   }
 
   get diagnostic() { return JSON.stringify(this.driver); }
