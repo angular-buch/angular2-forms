@@ -1,4 +1,5 @@
 import {Component, View} from 'angular2/core';
+import {UserForm} from './components/user-form/user-form';
 import {DriverForm} from './components/driver-form/driver-form';
 
 
@@ -6,8 +7,10 @@ import {DriverForm} from './components/driver-form/driver-form';
   selector: 'forms-app',
 })
 @View({
-  directives: [DriverForm],
+  directives: [UserForm, DriverForm],
   template: `
+    <user-form></user-form>
+    <hr>
     <driver-form></driver-form>
   `
 })
