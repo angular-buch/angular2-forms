@@ -17,7 +17,6 @@ export class DriverForm {
   submitted = false;
 
   constructor(private fb: FormBuilder) {
-
     this.driverForm = fb.group({
       id:        ['', Validators.required, IdValidator.uniqueId],
       firstName: ['', Validators.compose([Validators.required,
@@ -32,5 +31,5 @@ export class DriverForm {
     this.submitted = true;
   }
 
-  get diagnostic() { return JSON.stringify(this.driver); }
+  get diagnostic() { return JSON.stringify(this.driverForm.value); }
 }
